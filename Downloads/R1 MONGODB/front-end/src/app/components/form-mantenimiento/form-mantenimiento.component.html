@@ -1,0 +1,12 @@
+<form [formGroup]="mantenimientoForm" (submit)="onSubmit()">
+  <input type="text" formControlName="usuario" placeholder="Usuario">
+  <input type="text" formControlName="tipo_mantenimiento" placeholder="tipo de mantenimeinto">
+  <input type="text" formControlName="descripcion" placeholder="Descripcion">
+  <input type="text" formControlName="area_solicitante" placeholder="Area">
+  <input type="text" formControlName="fecha_solicitud" placeholder="Fecha">
+  <input type="text" formControlName="urgencia" placeholder="Urgencia">
+  <input type="text" formControlName="estado" placeholder="Estado">
+  <!-- Agrega los otros campos del formulario aquí -->
+  <button type="submit" class="btn btn-primary" [disabled]="mantenimientoForm.invalid">Guardar</button>
+
+</form>
