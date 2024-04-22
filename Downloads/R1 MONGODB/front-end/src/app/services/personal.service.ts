@@ -4,16 +4,16 @@ import { clienteAxios } from '../helpers/ClienteAcess';
 @Injectable({
   providedIn: 'root'
 })
-export class SolicitudesMantenimientoService {
+export class PersonalService {
   public isError!: boolean;
 
   constructor() { }
 
   //Registrar
-  async insertarMantenimiento(usuario:any):Promise<any>{
+  async insertarPersonal(usuario:any):Promise<any>{
     try {
       // TODO: Mover hacia un cliente Axios
-      const { data } = await clienteAxios.post("/mantenimiento/add",usuario);
+      const { data } = await clienteAxios.post("/personal/add",usuario);
       //console.log(data.msg);
       this.isError = false;
 
@@ -27,9 +27,9 @@ export class SolicitudesMantenimientoService {
   };
 
   //LISTAR
-  async listarReportes(){
+  async listarPersonal(){
     try {
-      const { data } = await clienteAxios.get("/mantenimiento/list");
+      const { data } = await clienteAxios.get("/personal/list");
       return data;
     } catch (error) {
       console.log("Error angular");
@@ -38,13 +38,12 @@ export class SolicitudesMantenimientoService {
   //Editar
   async editarSolicitud(id:any){
     try {
-      const { data } = await clienteAxios.post("/mantenimiento/edit",id);
+      const { data } = await clienteAxios.post("/personal/edit",id);
       return data;
     } catch (error) {
 
     }
   }
 
-
+  
 }
-

@@ -1,0 +1,7 @@
+<h1 class="titulo">Registro Personal</h1>
+
+<form [formGroup]="registroForm" (submit)="onSubmit()">
+  <input type="text" formControlName="Nombre" placeholder="Nombre">
+  <input type="text" formControlName="Apellido" placeholder="Apellido">
+  <button type="submit" class="btn btn-primary" [disabled]="registroForm.invalid">Guardar</button>
+</form>

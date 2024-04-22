@@ -20,21 +20,26 @@ export default class FormMantenimientoComponent {
       tipo_mantenimiento: ['', Validators.required],
       descripcion: ['', Validators.required],
       area_solicitante: ['', Validators.required],
-      fecha_solicitud: ['', Validators.required],
       urgencia: ['', Validators.required],
       estado: ['', Validators.required]
     });
   }
 
-  async onSubmit(){
+  async onSubmit() {
     if (this.mantenimientoForm.valid) {
-      // Aquí puedes enviar el formulario a tu servicio para guardar los datos
-      console.log(this.mantenimientoForm.value);
-      const data = await this.mantService.insertarMantenimiento(this.mantenimientoForm.value);
+      // Obtener la fecha actual
+      const fechaActual = new Date().toISOString().split('T')[0];
+      // Agregar la fecha actual a los datos del formulario
+      const formData = { ...this.mantenimientoForm.value, fecha_solicitud: fechaActual };
+
+      // Aquí puedes enviar los datos del formulario al servicio para guardarlos
+      console.log(formData);
+      const data = await this.mantService.insertarMantenimiento(formData);
       console.log(data);
     } else {
       // Marcar los campos como tocados para mostrar los errores de validación
       this.mantenimientoForm.markAllAsTouched();
     }
   }
+
 }

@@ -1,1 +1,31 @@
-<p>listado-mantenimiento works!</p>
+<div class="container">
+  <div class="filtro mb-3">
+    <select class="form-control" [(ngModel)]="filtroEstadoSelect" (change)="aplicarFiltroEstado()">
+      <option value="">Todos</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="En proceso">En proceso</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let registro of datosFiltrados" class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <img src="https://uploads-ssl.webflow.com/613e3c4461d453744aa1b8b8/625071515dd5c4851217c953_Mantenimiento.png" class="card-img-top" alt="Imagen por defecto">
+        <div class="card-body">
+          <p class="card-title">Usuario: {{ registro.usuario }}</p>
+          <p class="card-text">Tipo de Mantenimiento: {{ registro.tipo_mantenimiento }}</p>
+          <p class="card-text">Descripción: {{ registro.descripcion }}</p>
+          <p class="card-text">Área Solicitante: {{ registro.area_solicitante }}</p>
+          <p class="card-text">Fecha de Solicitud: {{ registro.fecha_solicitud }}</p>
+          <p class="card-text">Urgencia: {{ registro.urgencia }}</p>
+          <p class="card-text">Estado: {{ registro.estado }}</p>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-success">Editar</button>
+            <button type="button" class="btn btn-danger">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

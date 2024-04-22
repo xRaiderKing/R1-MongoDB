@@ -1,12 +1,31 @@
+<h1 class="titulo">Registro Mantenimiento</h1>
+
 <form [formGroup]="mantenimientoForm" (submit)="onSubmit()">
   <input type="text" formControlName="usuario" placeholder="Usuario">
-  <input type="text" formControlName="tipo_mantenimiento" placeholder="tipo de mantenimeinto">
+  <select formControlName="tipo_mantenimiento" placeholder="tipo de mantenimiento">
+    <option value="" disabled selected>Tipo de mantenimiento</option>
+    <option value="Preventivo">Preventivo</option>
+    <option value="Correctivo">Correctivo</option>
+    <!-- Agrega más opciones según sea necesario -->
+  </select>
   <input type="text" formControlName="descripcion" placeholder="Descripcion">
-  <input type="text" formControlName="area_solicitante" placeholder="Area">
-  <input type="text" formControlName="fecha_solicitud" placeholder="Fecha">
-  <input type="text" formControlName="urgencia" placeholder="Urgencia">
-  <input type="text" formControlName="estado" placeholder="Estado">
-  <!-- Agrega los otros campos del formulario aquí -->
+  <select formControlName="area_solicitante" placeholder="Area">
+    <option value="" disabled selected>Área solicitante</option>
+    <option value="Recepción">Recepción</option>
+    <option value="Industrial">Industrial</option>
+    <option value="Gestion Administrativa">Gestión Administrativa</option>
+    <!-- Agrega más opciones según sea necesario -->
+  </select>
+  <select formControlName="urgencia" placeholder="Urgencia" >
+    <option value="" disabled selected>Urgencia</option>
+    <option value="Baja">Baja</option>
+    <option value="Media">Media</option>
+    <option value="Alta">Alta</option>
+    <!-- Agrega más opciones según sea necesario -->
+  </select>
+  <select formControlName="estado" placeholder="Estado">
+    <option value="" disabled selected>Estado</option>
+    <option value="Pendiente">Pendiente</option>
+  </select>
   <button type="submit" class="btn btn-primary" [disabled]="mantenimientoForm.invalid">Guardar</button>
-
 </form>

@@ -8,8 +8,8 @@ const mantenimientoSchema = new mongoose.Schema({
   fecha_solicitud: { type: Date, required: true },
   urgencia: { type: String, required: true },
   estado: { type: String, required: true }
-});
+}, { timestamps: true });
 
 const Mantenimiento = mongoose.model('Mantenimiento', mantenimientoSchema);
 
-export default Mantenimiento
+export default Mantenimiento;

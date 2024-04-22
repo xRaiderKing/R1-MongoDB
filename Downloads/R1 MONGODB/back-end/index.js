@@ -4,6 +4,7 @@ import cors from "cors"; // permitir coneiones desde el domini del front
 
 import conectarDB from './config/db.js'
 import solicitudesRoutes from './routes/solicitudesRoutes.js'
+import personalRoutes from './routes/personalRoutes.js'
 
 //-----------------
 const APP = express();  //  Para concentrar la funcionalidad de express
@@ -31,11 +32,8 @@ const corsOptions = {
 //----------------- routing
 APP.use(cors(corsOptions));
 //  Para cada solicitud al path:'localhost:4000/' 
-APP.use('/app/mantenimiento',solicitudesRoutes);    // para las rutas de usuario
-//APP.use('/app/confer',conferenceRoutes);    //  para las rutas de conferencia
-//APP.use('/app/assist',assistRoutes);    //  rutas para asistir a una conferencia
-//APP.use('/app/statist',statistRoutes);    //  rutas para las estadisticas
-
+APP.use('/app/mantenimiento',solicitudesRoutes);
+APP.use('/app/personal',personalRoutes);  
 
 //------------------
 //  Escucha las conexiones en el puerto 4000

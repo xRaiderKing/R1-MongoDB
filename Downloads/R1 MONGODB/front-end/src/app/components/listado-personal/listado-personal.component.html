@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="_id" placeholder="ID del trabajador">
+        </div>
+        <button type="button" class="btn btn-secondary btn-block mb-3">Aplicar filtro</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let registro of datos" class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <img src="https://cdn-icons-png.flaticon.com/512/7531/7531708.png" class="card-img-top" alt="Imagen por defecto">
+        <div class="card-body">
+          <p class="card-title">ID: {{ registro._id }}</p>
+          <p class="card-title">Nombre: {{ registro.Nombre }}</p>
+          <p class="card-text">Apellido: {{ registro.Apellido }}</p>
+          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
